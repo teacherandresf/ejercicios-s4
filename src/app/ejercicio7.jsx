@@ -1,10 +1,23 @@
 import { useState } from "react";
 import { Button, Pressable, Text, TextInput, View } from "react-native";
+import { Tareas } from "./pruebas5";
 
 const productosOriginal = [
   { id: 1, nombre: "manzana" },
   { id: 2, nombre: "filetes" },
 ];
+
+//props
+
+function Firma({ nombre, apellidos }) {
+  return (
+    <View>
+      <Text>
+        Hecho por {nombre} y {apellidos}
+      </Text>
+    </View>
+  );
+}
 
 export default function App() {
   const [productos, setNuevosProductos] = useState(productosOriginal);
@@ -42,6 +55,9 @@ export default function App() {
         </View>
       ))}
       <Text>Total {productos.length} productos</Text>
+      <Firma nombre="Andrés" apellidos="Fr" />
+      <Firma nombre="María" apellidos="Gr" />
+      <Tareas tareas={productosOriginal} />
     </View>
   );
 }
